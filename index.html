@@ -9,82 +9,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg:{DEFAULT:'#0b0f14',sec:'#111820'},
-            card:{DEFAULT:'#151e29',hover:'#1b2736'},
-            bdr:'#243040',fg:'#e2e7ec',muted:'#5f7a92',
-            accent:{DEFAULT:'#f59e0b',hover:'#d97706',light:'#fbbf24'},
-          },
-          fontFamily:{display:['Outfit','sans-serif']}
-        }
-      }
-    }
+    tailwind.config={theme:{extend:{colors:{bg:{DEFAULT:'#0b0f14',sec:'#111820'},card:{DEFAULT:'#151e29',hover:'#1b2736'},bdr:'#243040',fg:'#e2e7ec',muted:'#5f7a92',accent:{DEFAULT:'#f59e0b',hover:'#d97706',light:'#fbbf24'}},fontFamily:{display:['Outfit','sans-serif']}}}}
   </script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Outfit',sans-serif;background:#0b0f14;color:#e2e7ec;min-height:100vh}
-    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-      background:radial-gradient(ellipse 55% 45% at 15% 5%,rgba(245,158,11,.05) 0%,transparent 60%),
-                 radial-gradient(ellipse 45% 35% at 85% 85%,rgba(16,185,129,.03) 0%,transparent 60%)}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 55% 45% at 15% 5%,rgba(245,158,11,.05) 0%,transparent 60%),radial-gradient(ellipse 45% 35% at 85% 85%,rgba(16,185,129,.03) 0%,transparent 60%)}
     .mw{position:relative;z-index:1}
-
     .dz{border:2px dashed #243040;transition:all .3s;background:linear-gradient(135deg,rgba(21,30,41,.5),rgba(17,24,32,.7))}
     .dz.over{border-color:#f59e0b;background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(17,24,32,.9));transform:scale(1.005)}
     .dz:hover{border-color:#f59e0b44}
-
     .rc{background:linear-gradient(145deg,#151e29,#121a24);border:1px solid #243040;transition:all .3s cubic-bezier(.4,0,.2,1);animation:ci .35s ease-out both}
     .rc:hover{border-color:#334a60;transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.4)}
     @keyframes ci{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-
-    .badge{font-size:.6rem;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:16px;text-transform:uppercase;white-space:nowrap;line-height:1.5}
-    .ctag{font-size:.58rem;font-weight:600;padding:2px 7px;border-radius:5px;letter-spacing:.01em;line-height:1.5}
-    .dir-tag{font-size:.55rem;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:.02em;line-height:1.5}
-
+    .badge{font-size:.58rem;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:14px;text-transform:uppercase;white-space:nowrap;line-height:1.5}
+    .ctag{font-size:.56rem;font-weight:600;padding:2px 6px;border-radius:5px;line-height:1.5}
+    .dtag{font-size:.54rem;font-weight:700;padding:2px 5px;border-radius:4px;line-height:1.5}
     .sc{background:linear-gradient(145deg,#151e29,#10171f);border:1px solid #243040;transition:all .25s}
     .sc:hover{border-color:#334a60;transform:translateY(-1px)}
-
     .mo{background:rgba(0,0,0,.78);backdrop-filter:blur(10px);animation:fi .15s}
     .mc{background:linear-gradient(145deg,#151e29,#111820);border:1px solid #243040;animation:mi .25s ease-out}
     @keyframes fi{from{opacity:0}to{opacity:1}}
     @keyframes mi{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
-
     .toast{animation:ti .25s ease,to .25s ease 2.7s forwards}
     @keyframes ti{from{opacity:0;transform:translateX(100%)}to{opacity:1;transform:translateX(0)}}
     @keyframes to{from{opacity:1}to{opacity:0;transform:translateX(100%)}}
-
     .pb{background:linear-gradient(90deg,#f59e0b,#fbbf24);transition:width .3s}
     .pd{width:7px;height:7px;border-radius:50%;animation:pu 2s infinite}
     @keyframes pu{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.4)}50%{box-shadow:0 0 0 7px rgba(245,158,11,0)}}
-
     .fb{transition:all .2s;border:1px solid #243040;cursor:pointer;background:transparent;color:#5f7a92}
     .fb.on{border-color:var(--ac,#e2e7ec);background:color-mix(in srgb,var(--ac,#e2e7ec) 13%,transparent);color:var(--ac,#e2e7ec)}
     .fb:not(.on):hover{border-color:#334a60;color:#e2e7ec;background:#151e2966}
-
-    .sf{font-size:.68rem;padding:3px 9px;border-radius:7px;border:1px solid #243040;transition:all .2s;cursor:pointer;background:transparent;color:#5f7a92}
+    .sf{font-size:.66rem;padding:3px 8px;border-radius:7px;border:1px solid #243040;transition:all .2s;cursor:pointer;background:transparent;color:#5f7a92}
     .sf.on{background:color-mix(in srgb,var(--ac,#e2e7ec) 11%,transparent);border-color:var(--ac,#e2e7ec);color:var(--ac,#e2e7ec)}
     .sf:hover:not(.on){border-color:#334a60;color:#e2e7ec}
-
     .inp{background:#0b0f14;border:1px solid #243040;color:#e2e7ec;transition:border-color .2s}
     .inp:focus{border-color:#f59e0b;outline:none}
     select.inp{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%235f7a92' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 7px center;background-size:18px;padding-right:30px}
     select.inp option{background:#111820;color:#e2e7ec}
-
     ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0b0f14}::-webkit-scrollbar-thumb{background:#243040;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#334a60}
-
     .rg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.75rem}
     @media(max-width:640px){.rg{grid-template-columns:1fr}}
-
-    .info-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #24304033}
-    .info-row:last-child{border-bottom:none}
+    .ir{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid #24304033}
+    .ir:last-child{border-bottom:none}
+    .act-btn{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;font-size:.68rem;font-weight:600;transition:all .2s;cursor:pointer;border:1px solid}
+    .act-btn:hover{transform:translateY(-1px)}
+    .gh-status{width:8px;height:8px;border-radius:50%;flex-shrink:0}
   </style>
 </head>
 <body>
 <div class="mw min-h-screen">
 
-  <!-- ====== HEADER ====== -->
+  <!-- HEADER -->
   <header class="sticky top-0 z-50 border-b border-bdr" style="background:rgba(11,15,20,.94);backdrop-filter:blur(14px)">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2.5">
@@ -93,12 +69,13 @@
         </div>
         <div>
           <h1 class="text-base font-bold tracking-tight leading-tight">Vågkvitto Scanner</h1>
-          <p class="text-[10px] text-muted leading-tight">OCR &amp; automatisk sortering</p>
+          <p class="text-[10px] text-muted leading-tight">OCR, digitala kopior &amp; GitHub-säkerhetskopia</p>
         </div>
       </div>
       <div class="flex items-center gap-1">
         <button onclick="openManMod()" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-muted hover:text-fg hover:bg-card transition-all"><i class="fa-solid fa-pen-to-square"></i><span>Manuell</span></button>
         <button onclick="exportData()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-muted hover:text-fg hover:bg-card transition-all"><i class="fa-solid fa-download"></i><span class="hidden sm:inline">Exportera</span></button>
+        <button onclick="openGHMod()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-muted hover:text-fg hover:bg-card transition-all" id="ghBtn" title="GitHub-säkerhetskopia"><i class="fa-brands fa-github"></i></button>
         <button onclick="confirmDelAll()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-medium text-muted hover:text-red-400 hover:bg-red-400/10 transition-all"><i class="fa-solid fa-trash-can"></i></button>
       </div>
     </div>
@@ -106,7 +83,7 @@
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-4">
 
-    <!-- ====== UPLOAD ====== -->
+    <!-- UPLOAD -->
     <section>
       <div class="dz rounded-2xl p-6 text-center cursor-pointer" id="dropZone" onclick="document.getElementById('fileInput').click()">
         <div class="flex flex-col items-center gap-2.5">
@@ -116,570 +93,499 @@
             <button onclick="event.stopPropagation();document.getElementById('cameraInput').click()" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-all"><i class="fa-solid fa-camera"></i>Kamera</button>
             <button onclick="event.stopPropagation();document.getElementById('fileInput').click()" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-card border border-bdr text-fg font-medium text-xs hover:bg-card-hover transition-all"><i class="fa-solid fa-folder-open"></i>Välj filer</button>
           </div>
-          <p class="text-[10px] text-muted">JPEG, PNG, WEBP — vikten avgör om det är vågkvitto</p>
+          <p class="text-[10px] text-muted">JPEG, PNG, WEBP — bilderna sparas i hög kvalitet för digitala kopior</p>
         </div>
       </div>
       <input type="file" id="fileInput" accept="image/*" multiple class="hidden" onchange="handleFiles(this.files)">
       <input type="file" id="cameraInput" accept="image/*" capture="environment" class="hidden" onchange="handleFiles(this.files)">
     </section>
 
-    <!-- ====== PROCESSING ====== -->
+    <!-- PROCESSING -->
     <section id="procSec" class="hidden">
       <div class="rounded-xl bg-card border border-bdr p-4">
-        <div class="flex items-center gap-2 mb-2.5"><div class="pd bg-accent"></div><span class="font-semibold text-xs" id="procTxt">Laddar OCR...</span></div>
+        <div class="flex items-center gap-2 mb-2.5"><div class="pd bg-accent"></div><span class="font-semibold text-xs" id="procTxt"></span></div>
         <div class="w-full h-1 bg-bg rounded-full overflow-hidden"><div class="pb h-full rounded-full" id="procBar" style="width:0%"></div></div>
         <p class="text-[10px] text-muted mt-1" id="procDet"></p>
       </div>
     </section>
 
-    <!-- ====== STATS ====== -->
+    <!-- STATS -->
     <section class="grid grid-cols-2 sm:grid-cols-5 gap-2">
       <div class="sc rounded-xl p-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold">Totalt</p><p class="text-xl font-bold mt-0.5" id="sT">0</p></div>
-      <div class="sc rounded-xl p-3">
-        <p class="text-[9px] uppercase tracking-wider font-semibold" style="color:#f59e0b">Vågkvitton</p>
-        <p class="text-xl font-bold mt-0.5" style="color:#f59e0b" id="sV">0</p>
-        <p class="text-[9px] text-muted mt-0.5" id="sVL"></p>
-      </div>
+      <div class="sc rounded-xl p-3"><p class="text-[9px] uppercase tracking-wider font-semibold" style="color:#f59e0b">Vågkvitton</p><p class="text-xl font-bold mt-0.5" style="color:#f59e0b" id="sV">0</p><p class="text-[9px] text-muted mt-0.5" id="sVL"></p></div>
       <div class="sc rounded-xl p-3"><p class="text-[9px] uppercase tracking-wider font-semibold" style="color:#ef4444">Bränsle</p><p class="text-xl font-bold mt-0.5" style="color:#ef4444" id="sB">0</p></div>
       <div class="sc rounded-xl p-3"><p class="text-[9px] uppercase tracking-wider font-semibold" style="color:#06b6d4">AdBlue</p><p class="text-xl font-bold mt-0.5" style="color:#06b6d4" id="sA">0</p></div>
       <div class="sc rounded-xl p-3 col-span-2 sm:col-span-1"><p class="text-[9px] uppercase tracking-wider font-semibold text-muted">Okända</p><p class="text-xl font-bold mt-0.5 text-muted" id="sO">0</p></div>
     </section>
 
-    <!-- ====== FILTERS ====== -->
+    <!-- FILTERS -->
     <section class="space-y-2">
-      <div class="flex flex-wrap gap-1.5">
+      <div class="flex flex-wrap gap-1.5" id="typeFilters">
         <button class="fb on rounded-lg px-2.5 py-1.5 text-xs font-semibold" style="--ac:#e2e7ec" data-f="all" onclick="setTypeFilter('all',this)">Alla</button>
         <button class="fb rounded-lg px-2.5 py-1.5 text-xs font-semibold" style="--ac:#f59e0b" data-f="vagkvitto" onclick="setTypeFilter('vagkvitto',this)"><i class="fa-solid fa-scale-balanced mr-1 text-[9px]"></i>Vågkvitton</button>
         <button class="fb rounded-lg px-2.5 py-1.5 text-xs font-semibold" style="--ac:#ef4444" data-f="bransle" onclick="setTypeFilter('bransle',this)"><i class="fa-solid fa-gas-pump mr-1 text-[9px]"></i>Bränsle</button>
         <button class="fb rounded-lg px-2.5 py-1.5 text-xs font-semibold" style="--ac:#06b6d4" data-f="adblue" onclick="setTypeFilter('adblue',this)"><i class="fa-solid fa-droplet mr-1 text-[9px]"></i>AdBlue</button>
         <button class="fb rounded-lg px-2.5 py-1.5 text-xs font-semibold" style="--ac:#6b7280" data-f="okand" onclick="setTypeFilter('okand',this)">Okända</button>
       </div>
-      <!-- Riktningsfilter (bara för vågkvitton) -->
       <div id="dirRow" class="hidden"><div class="flex flex-wrap gap-1.5" id="dirBtns"></div></div>
-      <!-- Företagsfilter (bara för vågkvitton) -->
       <div id="compRow" class="hidden"><div class="flex flex-wrap gap-1.5" id="compBtns"></div></div>
-      <!-- Sök & sortering -->
       <div class="flex gap-2">
-        <div class="relative flex-1">
-          <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-1/2 -translate-y-1/2 text-muted text-[10px]"></i>
-          <input type="text" id="searchInp" placeholder="Sök företag, datum, kund, belopp..." class="inp rounded-lg pl-7 pr-3 py-1.5 text-xs w-full" oninput="doSearch(this.value)">
-        </div>
+        <div class="relative flex-1"><i class="fa-solid fa-magnifying-glass absolute left-2.5 top-1/2 -translate-y-1/2 text-muted text-[10px]"></i><input type="text" id="searchInp" placeholder="Sök företag, datum, kund, belopp..." class="inp rounded-lg pl-7 pr-3 py-1.5 text-xs w-full" oninput="doSearch(this.value)"></div>
         <select id="sortSel" class="inp rounded-lg px-2.5 py-1.5 text-xs" onchange="doSort(this.value)">
-          <option value="date-desc">Nyaste först</option>
-          <option value="date-asc">Äldst först</option>
-          <option value="type">Typ</option>
-          <option value="company">Företag</option>
-          <option value="direction">Riktning</option>
-          <option value="amount-desc">Belopp ↓</option>
-          <option value="amount-asc">Belopp ↑</option>
+          <option value="date-desc">Nyaste först</option><option value="date-asc">Äldst först</option><option value="type">Typ</option><option value="company">Företag</option><option value="direction">Riktning</option><option value="amount-desc">Belopp ↓</option><option value="amount-asc">Belopp ↑</option>
         </select>
       </div>
     </section>
 
-    <!-- ====== LIST ====== -->
+    <!-- LIST -->
     <section id="rList" class="rg"></section>
     <section id="empty" class="hidden text-center py-12">
       <div class="w-14 h-14 rounded-full bg-card border border-bdr flex items-center justify-center mx-auto mb-2.5"><i class="fa-solid fa-inbox text-muted text-xl"></i></div>
-      <p class="text-sm font-semibold text-muted">Inga kvitton hittades</p>
-      <p class="text-[11px] text-muted/60 mt-0.5">Ladda upp eller skanna ett kvitto</p>
+      <p class="text-sm font-semibold text-muted">Inga kvitton hittades</p><p class="text-[11px] text-muted/60 mt-0.5">Ladda upp eller skanna ett kvitto</p>
     </section>
   </main>
 </div>
 
-<!-- ====== TOASTS ====== -->
+<!-- TOASTS -->
 <div id="toastBox" class="fixed top-14 right-3 z-[100] space-y-1.5" style="max-width:340px"></div>
 
-<!-- ====== DETAIL MODAL ====== -->
-<div id="detMod" class="fixed inset-0 z-[90] hidden">
-  <div class="mo absolute inset-0" onclick="closeDet()"></div>
-  <div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl"><div id="detC"></div></div>
-</div>
+<!-- DETAIL MODAL -->
+<div id="detMod" class="fixed inset-0 z-[90] hidden"><div class="mo absolute inset-0" onclick="closeDet()"></div><div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl"><div id="detC"></div></div></div>
 
-<!-- ====== CONFIRM MODAL ====== -->
-<div id="cfmMod" class="fixed inset-0 z-[95] hidden">
-  <div class="mo absolute inset-0" onclick="closeCfm()"></div>
-  <div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-sm rounded-2xl p-5">
-    <h3 class="text-sm font-bold mb-1" id="cfmT"></h3>
-    <p class="text-muted text-xs mb-4" id="cfmM"></p>
-    <div class="flex gap-2 justify-end">
-      <button onclick="closeCfm()" class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-card border border-bdr hover:bg-card-hover transition-all">Avbryt</button>
-      <button id="cfmBtn" class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30 transition-all">Radera</button>
-    </div>
-  </div>
-</div>
+<!-- CONFIRM MODAL -->
+<div id="cfmMod" class="fixed inset-0 z-[95] hidden"><div class="mo absolute inset-0" onclick="closeCfm()"></div><div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-sm rounded-2xl p-5"><h3 class="text-sm font-bold mb-1" id="cfmT"></h3><p class="text-muted text-xs mb-4" id="cfmM"></p><div class="flex gap-2 justify-end"><button onclick="closeCfm()" class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-card border border-bdr hover:bg-card-hover transition-all">Avbryt</button><button id="cfmBtn" class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30 hover:bg-red-500/30 transition-all">Radera</button></div></div></div>
 
-<!-- ====== MANUAL MODAL ====== -->
-<div id="manMod" class="fixed inset-0 z-[90] hidden">
-  <div class="mo absolute inset-0" onclick="closeMan()"></div>
-  <div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] max-w-md max-h-[90vh] overflow-y-auto rounded-2xl p-5">
-    <div class="flex items-center justify-between mb-4"><h3 class="text-sm font-bold">Manuell inmatning</h3><button onclick="closeMan()" class="w-6 h-6 rounded hover:bg-card flex items-center justify-center"><i class="fa-solid fa-xmark text-muted text-xs"></i></button></div>
-    <form id="manForm" class="space-y-3" onsubmit="submitMan(event)">
-      <div class="grid grid-cols-2 gap-2">
-        <div><label class="block text-[10px] font-medium mb-0.5">Typ</label><select name="type" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="vagkvitto">Vågkvitto</option><option value="bransle">Bränsle</option><option value="adblue">AdBlue</option><option value="okand">Okänd</option></select></div>
-        <div><label class="block text-[10px] font-medium mb-0.5">Riktning</label><select name="direction" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="okand">Okänd</option><option value="hamtat">Hämtat</option><option value="lamnat">Lämnat</option></select></div>
-      </div>
-      <div class="grid grid-cols-2 gap-2">
-        <div><label class="block text-[10px] font-medium mb-0.5">Datum</label><input type="date" name="date" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" required></div>
-        <div><label class="block text-[10px] font-medium mb-0.5">Tid</label><input type="time" name="time" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
-      </div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Vägplats / Företag</label><input type="text" name="company" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. Hans Andersson Entreprenad AB"></div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Kund / Mottagare</label><input type="text" name="customer" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. Haninge Akeri AB"></div>
-      <div class="grid grid-cols-2 gap-2">
-        <div><label class="block text-[10px] font-medium mb-0.5">Vikt / Mängd</label><input type="text" name="amount" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. 16 440 kg"></div>
-        <div><label class="block text-[10px] font-medium mb-0.5">Totalt (SEK)</label><input type="text" name="total" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. 7298.58"></div>
-      </div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Material</label><input type="text" name="material" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. 0-150 Bergkross"></div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Kommentar</label><textarea name="comment" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full h-14 resize-none" placeholder="Övrig information..."></textarea></div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Bild (valfritt)</label><input type="file" name="image" accept="image/*" class="inp rounded-lg px-2 py-1 text-[11px] w-full file:mr-1.5 file:py-0.5 file:px-2 file:rounded file:border-0 file:text-[10px] file:font-semibold file:bg-accent/20 file:text-accent"></div>
-      <button type="submit" class="w-full py-2 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-all">Spara kvitto</button>
-    </form>
-  </div>
-</div>
+<!-- MANUAL MODAL -->
+<div id="manMod" class="fixed inset-0 z-[90] hidden"><div class="mo absolute inset-0" onclick="closeMan()"></div><div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] max-w-md max-h-[90vh] overflow-y-auto rounded-2xl p-5">
+  <div class="flex items-center justify-between mb-4"><h3 class="text-sm font-bold">Manuell inmatning</h3><button onclick="closeMan()" class="w-6 h-6 rounded hover:bg-card flex items-center justify-center"><i class="fa-solid fa-xmark text-muted text-xs"></i></button></div>
+  <form id="manForm" class="space-y-3" onsubmit="submitMan(event)">
+    <div class="grid grid-cols-2 gap-2"><div><label class="block text-[10px] font-medium mb-0.5">Typ</label><select name="type" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="vagkvitto">Vågkvitto</option><option value="bransle">Bränsle</option><option value="adblue">AdBlue</option><option value="okand">Okänd</option></select></div><div><label class="block text-[10px] font-medium mb-0.5">Riktning</label><select name="direction" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="okand">Okänd</option><option value="hamtat">Hämtat</option><option value="lamnat">Lämnat</option></select></div></div>
+    <div class="grid grid-cols-2 gap-2"><div><label class="block text-[10px] font-medium mb-0.5">Datum</label><input type="date" name="date" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" required></div><div><label class="block text-[10px] font-medium mb-0.5">Tid</label><input type="time" name="time" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Vägplats / Företag</label><input type="text" name="company" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. Hans Andersson Entreprenad AB"></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Kund / Mottagare</label><input type="text" name="customer" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. Haninge Akeri AB"></div>
+    <div class="grid grid-cols-2 gap-2"><div><label class="block text-[10px] font-medium mb-0.5">Vikt / Mängd</label><input type="text" name="amount" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. 16 440 kg"></div><div><label class="block text-[10px] font-medium mb-0.5">Totalt (SEK)</label><input type="text" name="total" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. 7298.58"></div></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Material</label><input type="text" name="material" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="t.ex. 0-150 Bergkross"></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Kommentar</label><textarea name="comment" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full h-14 resize-none" placeholder="Övrig information..."></textarea></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Bild (valfritt)</label><input type="file" name="image" accept="image/*" class="inp rounded-lg px-2 py-1 text-[11px] w-full file:mr-1.5 file:py-0.5 file:px-2 file:rounded file:border-0 file:text-[10px] file:font-semibold file:bg-accent/20 file:text-accent"></div>
+    <button type="submit" class="w-full py-2 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-all">Spara kvitto</button>
+  </form>
+</div></div>
 
-<!-- ====== EDIT MODAL ====== -->
-<div id="edtMod" class="fixed inset-0 z-[90] hidden">
-  <div class="mo absolute inset-0" onclick="closeEdt()"></div>
-  <div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] max-w-md max-h-[90vh] overflow-y-auto rounded-2xl p-5">
-    <div class="flex items-center justify-between mb-4"><h3 class="text-sm font-bold">Redigera kvitto</h3><button onclick="closeEdt()" class="w-6 h-6 rounded hover:bg-card flex items-center justify-center"><i class="fa-solid fa-xmark text-muted text-xs"></i></button></div>
-    <form id="edtForm" class="space-y-3" onsubmit="submitEdt(event)">
-      <input type="hidden" name="id">
-      <div class="grid grid-cols-2 gap-2">
-        <div><label class="block text-[10px] font-medium mb-0.5">Typ</label><select name="type" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="vagkvitto">Vågkvitto</option><option value="bransle">Bränsle</option><option value="adblue">AdBlue</option><option value="okand">Okänd</option></select></div>
-        <div><label class="block text-[10px] font-medium mb-0.5">Riktning</label><select name="direction" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="okand">Okänd</option><option value="hamtat">Hämtat</option><option value="lamnat">Lämnat</option></select></div>
-      </div>
-      <div class="grid grid-cols-2 gap-2">
-        <div><label class="block text-[10px] font-medium mb-0.5">Datum</label><input type="date" name="date" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" required></div>
-        <div><label class="block text-[10px] font-medium mb-0.5">Tid</label><input type="time" name="time" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
-      </div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Vägplats / Företag</label><input type="text" name="company" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Kund / Mottagare</label><input type="text" name="customer" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
-      <div class="grid grid-cols-2 gap-2">
-        <div><label class="block text-[10px] font-medium mb-0.5">Vikt / Mängd</label><input type="text" name="amount" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
-        <div><label class="block text-[10px] font-medium mb-0.5">Totalt (SEK)</label><input type="text" name="total" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
-      </div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Material</label><input type="text" name="material" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
-      <div><label class="block text-[10px] font-medium mb-0.5">Kommentar</label><textarea name="comment" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full h-14 resize-none"></textarea></div>
-      <button type="submit" class="w-full py-2 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-all">Spara ändringar</button>
-    </form>
+<!-- EDIT MODAL -->
+<div id="edtMod" class="fixed inset-0 z-[90] hidden"><div class="mo absolute inset-0" onclick="closeEdt()"></div><div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] max-w-md max-h-[90vh] overflow-y-auto rounded-2xl p-5">
+  <div class="flex items-center justify-between mb-4"><h3 class="text-sm font-bold">Redigera kvitto</h3><button onclick="closeEdt()" class="w-6 h-6 rounded hover:bg-card flex items-center justify-center"><i class="fa-solid fa-xmark text-muted text-xs"></i></button></div>
+  <form id="edtForm" class="space-y-3" onsubmit="submitEdt(event)">
+    <input type="hidden" name="id">
+    <div class="grid grid-cols-2 gap-2"><div><label class="block text-[10px] font-medium mb-0.5">Typ</label><select name="type" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="vagkvitto">Vågkvitto</option><option value="bransle">Bränsle</option><option value="adblue">AdBlue</option><option value="okand">Okänd</option></select></div><div><label class="block text-[10px] font-medium mb-0.5">Riktning</label><select name="direction" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"><option value="okand">Okänd</option><option value="hamtat">Hämtat</option><option value="lamnat">Lämnat</option></select></div></div>
+    <div class="grid grid-cols-2 gap-2"><div><label class="block text-[10px] font-medium mb-0.5">Datum</label><input type="date" name="date" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" required></div><div><label class="block text-[10px] font-medium mb-0.5">Tid</label><input type="time" name="time" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Vägplats / Företag</label><input type="text" name="company" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Kund / Mottagare</label><input type="text" name="customer" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
+    <div class="grid grid-cols-2 gap-2"><div><label class="block text-[10px] font-medium mb-0.5">Vikt / Mängd</label><input type="text" name="amount" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div><div><label class="block text-[10px] font-medium mb-0.5">Totalt (SEK)</label><input type="text" name="total" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Material</label><input type="text" name="material" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full"></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Kommentar</label><textarea name="comment" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full h-14 resize-none"></textarea></div>
+    <button type="submit" class="w-full py-2 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-all">Spara ändringar</button>
+  </form>
+</div></div>
+
+<!-- GITHUB MODAL -->
+<div id="ghMod" class="fixed inset-0 z-[90] hidden"><div class="mo absolute inset-0" onclick="closeGHMod()"></div><div class="mc absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95vw] max-w-md max-h-[90vh] overflow-y-auto rounded-2xl p-5">
+  <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center gap-2"><i class="fa-brands fa-github text-lg"></i><h3 class="text-sm font-bold">GitHub-säkerhetskopia</h3></div>
+    <button onclick="closeGHMod()" class="w-6 h-6 rounded hover:bg-card flex items-center justify-center"><i class="fa-solid fa-xmark text-muted text-xs"></i></button>
   </div>
-</div>
+  <p class="text-[11px] text-muted mb-4">Spara alla kvittodatabitar på GitHub via Gist. Bilderna sparas lokalt i webbläsaren. Skapa en <a href="https://github.com/settings/tokens/new?scopes=gist&description=Vagkvitto%20Scanner" target="_blank" class="text-accent underline">Personal Access Token</a> med behörighet <strong>gists</strong>.</p>
+  <div class="space-y-3">
+    <div><label class="block text-[10px] font-medium mb-0.5">GitHub användarnamn</label><input type="text" id="ghUser" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="ditt-användarnamn"></div>
+    <div><label class="block text-[10px] font-medium mb-0.5">Personal Access Token</label><input type="password" id="ghToken" class="inp rounded-lg px-2.5 py-1.5 text-xs w-full" placeholder="ghp_xxxxxxxxxxxx"></div>
+    <div id="ghStatus" class="hidden flex items-center gap-2 text-[11px]"></div>
+  </div>
+  <div class="flex gap-2 mt-4">
+    <button onclick="saveGHSet()" class="flex-1 py-2 rounded-xl bg-card border border-bdr text-fg font-semibold text-xs hover:bg-card-hover transition-all">Spara inställningar</button>
+    <button onclick="testGH()" class="px-3 py-2 rounded-xl bg-card border border-bdr text-muted text-xs hover:bg-card-hover transition-all" title="Testa anslutning"><i class="fa-solid fa-plug"></i></button>
+  </div>
+  <div class="grid grid-cols-2 gap-2 mt-3">
+    <button onclick="backupGH()" class="py-2 rounded-xl text-xs font-semibold transition-all" style="background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid rgba(245,158,11,.25)"><i class="fa-solid fa-cloud-arrow-up mr-1"></i>Säkerhetskopiera</button>
+    <button onclick="restoreGH()" class="py-2 rounded-xl text-xs font-semibold transition-all" style="background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.25)"><i class="fa-solid fa-cloud-arrow-down mr-1"></i>Återställ</button>
+  </div>
+</div></div>
 
 <script>
-/* =============================================
-   TILLSTÅND
-   ============================================= */
-let receipts = JSON.parse(localStorage.getItem('vkv2') || '[]');
-let typeFilter = 'all', dirFilter = 'all', compFilter = 'all';
-let searchQ = '', sortMode = 'date-desc';
-let ocrW = null, busy = false;
+/* ========== TILLSTÅND ========== */
+var receipts=JSON.parse(localStorage.getItem('vkv3')||'[]');
+var typeFilter='all',dirFilter='all',compFilter='all';
+var searchQ='',sortMode='date-desc';
+var ocrW=null,busy=false;
 
-/* =============================================
-   KONFIGURATION
-   ============================================= */
-const TC = {
-  vagkvitto:{l:'Vågkvitto',c:'#f59e0b',i:'fa-scale-balanced'},
-  bransle:{l:'Bränsle',c:'#ef4444',i:'fa-gas-pump'},
-  adblue:{l:'AdBlue',c:'#06b6d4',i:'fa-droplet'},
-  okand:{l:'Okänd',c:'#6b7280',i:'fa-question'}
-};
-const CC = {
-  'hans-andersson':{l:'Hans Andersson',c:'#f59e0b',bg:'rgba(245,158,11,.11)'},
-  'sortera':{l:'Sortera',c:'#10b981',bg:'rgba(16,185,129,.11)'},
-  'st1':{l:'St1',c:'#ef4444',bg:'rgba(239,68,68,.11)'},
-  'preem':{l:'Preem',c:'#3b82f6',bg:'rgba(59,130,246,.11)'},
-  'okq8':{l:'OKQ8',c:'#8b5cf6',bg:'rgba(139,92,246,.11)'},
-  'circlek':{l:'Circle K',c:'#ec4899',bg:'rgba(236,72,153,.11)'},
-  'annat':{l:'Annat',c:'#6b7280',bg:'rgba(107,114,128,.11)'}
-};
-const DC = {
-  hamtat:{l:'Hämtat',c:'#10b981',i:'fa-arrow-up-from-bracket'},
-  lamnat:{l:'Lämnat',c:'#f59e0b',i:'fa-arrow-down-to-bracket'},
-  okand:{l:'Okänd',c:'#6b7280',i:'fa-minus'}
-};
+/* ========== KONFIG ========== */
+var TC={vagkvitto:{l:'Vågkvitto',c:'#f59e0b',i:'fa-scale-balanced'},bransle:{l:'Bränsle',c:'#ef4444',i:'fa-gas-pump'},adblue:{l:'AdBlue',c:'#06b6d4',i:'fa-droplet'},okand:{l:'Okänd',c:'#6b7280',i:'fa-question'}};
+var CC={'hans-andersson':{l:'Hans Andersson',c:'#f59e0b',bg:'rgba(245,158,11,.11)'},'sortera':{l:'Sortera',c:'#10b981',bg:'rgba(16,185,129,.11)'},'st1':{l:'St1',c:'#ef4444',bg:'rgba(239,68,68,.11)'},'preem':{l:'Preem',c:'#3b82f6',bg:'rgba(59,130,246,.11)'},'okq8':{l:'OKQ8',c:'#8b5cf6',bg:'rgba(139,92,246,.11)'},'circlek':{l:'Circle K',c:'#ec4899',bg:'rgba(236,72,153,.11)'},'annat':{l:'Annat',c:'#6b7280',bg:'rgba(107,114,128,.11)'}};
+var DC={hamtat:{l:'Hämtat',c:'#10b981',i:'fa-arrow-up-from-bracket'},lamnat:{l:'Lämnat',c:'#f59e0b',i:'fa-arrow-down-to-bracket'},okand:{l:'Okänd',c:'#6b7280',i:'fa-minus'}};
 
-/* =============================================
-   VERKTYG
-   ============================================= */
-const gid=()=>Date.now().toString(36)+Math.random().toString(36).substr(2,7);
+/* ========== VERKTYG ========== */
+function gid(){return Date.now().toString(36)+Math.random().toString(36).substr(2,7);}
+function save(){try{localStorage.setItem('vkv3',JSON.stringify(receipts));}catch(e){var t=receipts.map(function(r){return Object.assign({},r,{imageUrl:null,ocrText:''});});try{localStorage.setItem('vkv3',JSON.stringify(t));}catch(e2){toast('Lagring full.','error');}}}
 
-function save(){
-  try{localStorage.setItem('vkv2',JSON.stringify(receipts));}
-  catch(e){let t=receipts.map(r=>({...r,imageUrl:null}));try{localStorage.setItem('vkv2',JSON.stringify(t));}catch(e2){toast('Lagring full.','error');}}
-}
-
-function compImg(f,mw=1000,q=0.55){
-  return new Promise(res=>{
-    const rd=new FileReader();
-    rd.onload=ev=>{const img=new Image();img.onload=()=>{const c=document.createElement('canvas');let w=img.width,h=img.height;if(w>mw){h=(mw/w)*h;w=mw;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);res(c.toDataURL('image/jpeg',q));};img.src=ev.target.result;};
+/* Högre kvalitet för digitala kopior: 1800px, 0.78 */
+function compImg(f,mw,q){
+  mw=mw||1800;q=q||0.78;
+  return new Promise(function(res){
+    var rd=new FileReader();
+    rd.onload=function(ev){var img=new Image();img.onload=function(){var c=document.createElement('canvas');var w=img.width,h=img.height;if(w>mw){h=(mw/w)*h;w=mw;}c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);res(c.toDataURL('image/jpeg',q));};img.src=ev.target.result;};
     rd.readAsDataURL(f);
   });
 }
 
-function fmtD(d){if(!d)return'—';const dt=new Date(d);if(isNaN(dt))return d;const ms=['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];return dt.getDate()+' '+ms[dt.getMonth()]+' '+dt.getFullYear();}
-function pA(s){if(!s)return 0;const n=parseFloat(String(s).replace(/[^\d.,\-]/g,'').replace(/\s/g,'').replace(',','.'));return isNaN(n)?0:n;}
+function fmtD(d){if(!d)return'—';var dt=new Date(d);if(isNaN(dt))return d;var ms=['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];return dt.getDate()+' '+ms[dt.getMonth()]+' '+dt.getFullYear();}
+function pA(s){if(!s)return 0;var n=parseFloat(String(s).replace(/[^\d.,\-]/g,'').replace(/\s/g,'').replace(',','.'));return isNaN(n)?0:n;}
+function ctagH(ck){var c=CC[ck]||CC.annat;return'<span class="ctag" style="background:'+c.bg+';color:'+c.c+'">'+c.l+'</span>';}
+function dtagH(dir){var c=DC[dir]||DC.okand;return'<span class="dtag" style="background:'+c.c+'18;color:'+c.c+'"><i class="fa-solid '+c.i+'" style="font-size:7px"></i></span>';}
+function guessCK(n){if(!n)return'annat';var l=n.toLowerCase();if(l.includes('hans andersson'))return'hans-andersson';if(l.includes('sortera'))return'sortera';if(l.includes('st1')||l.includes('st 1'))return'st1';if(l.includes('preem'))return'preem';if(l.includes('okq8')||l.includes('ok q8'))return'okq8';if(l.includes('circle k'))return'circlek';return'annat';}
 
-function ctag(ck){const c=CC[ck]||CC.annat;return'<span class="ctag" style="background:'+c.bg+';color:'+c.c+'">'+c.l+'</span>';}
-function dtag(dir){const c=DC[dir]||DC.okand;return'<span class="dir-tag" style="background:'+c.c+'18;color:'+c.c+'"><i class="fa-solid '+c.i+' mr-0.5" style="font-size:8px"></i>'+c.l+'</span>';}
-
-/* =============================================
-   TOAST
-   ============================================= */
+/* ========== TOAST ========== */
 function toast(msg,type){
-  type=type||'success';
-  const cols={success:'border-green-500/40 bg-green-500/10 text-green-400',error:'border-red-500/40 bg-red-500/10 text-red-400',info:'border-cyan-500/40 bg-cyan-500/10 text-cyan-400'};
-  const icons={success:'fa-circle-check',error:'fa-circle-exclamation',info:'fa-circle-info'};
-  const el=document.createElement('div');
-  el.className='toast flex items-center gap-2 px-3 py-2 rounded-xl border '+cols[type]+' text-[11px] font-medium backdrop-blur-sm';
-  el.innerHTML='<i class="fa-solid '+icons[type]+'"></i><span>'+msg+'</span>';
-  document.getElementById('toastBox').appendChild(el);
-  setTimeout(()=>el.remove(),3200);
+  type=type||'success';var cols={success:'border-green-500/40 bg-green-500/10 text-green-400',error:'border-red-500/40 bg-red-500/10 text-red-400',info:'border-cyan-500/40 bg-cyan-500/10 text-cyan-400'};var icons={success:'fa-circle-check',error:'fa-circle-exclamation',info:'fa-circle-info'};
+  var el=document.createElement('div');el.className='toast flex items-center gap-2 px-3 py-2 rounded-xl border '+cols[type]+' text-[11px] font-medium backdrop-blur-sm';el.innerHTML='<i class="fa-solid '+icons[type]+'"></i><span>'+msg+'</span>';document.getElementById('toastBox').appendChild(el);setTimeout(function(){el.remove();},3200);
 }
 
-/* =============================================
-   PROCESSING UI
-   ============================================= */
-function showProc(on,txt,det){
-  const s=document.getElementById('procSec'),u=document.getElementById('dropZone');
-  if(on){s.classList.remove('hidden');u.style.opacity='.3';u.style.pointerEvents='none';if(txt)document.getElementById('procTxt').textContent=txt;if(det)document.getElementById('procDet').textContent=det;}
-  else{s.classList.add('hidden');u.style.opacity='1';u.style.pointerEvents='auto';document.getElementById('procBar').style.width='0%';}
-}
-function updProc(txt,det){
-  if(txt)document.getElementById('procTxt').textContent=txt;
-  if(det){document.getElementById('procDet').textContent=det;const p=parseInt(det);if(!isNaN(p))document.getElementById('procBar').style.width=p+'%';}
-}
+/* ========== PROCESSING UI ========== */
+function showProc(on,txt,det){var s=document.getElementById('procSec'),u=document.getElementById('dropZone');if(on){s.classList.remove('hidden');u.style.opacity='.3';u.style.pointerEvents='none';if(txt)document.getElementById('procTxt').textContent=txt;if(det)document.getElementById('procDet').textContent=det;}else{s.classList.add('hidden');u.style.opacity='1';u.style.pointerEvents='auto';document.getElementById('procBar').style.width='0%';}}
+function updProc(txt,det){if(txt)document.getElementById('procTxt').textContent=txt;if(det){document.getElementById('procDet').textContent=det;var p=parseInt(det);if(!isNaN(p))document.getElementById('procBar').style.width=p+'%';}}
 
-/* =============================================
-   OCR
-   ============================================= */
-async function getW(){
-  if(ocrW)return ocrW;
-  showProc(true,'Laddar OCR-motor...','Första gången ca 10-30s');
-  try{
-    ocrW=await Tesseract.createWorker('swe+eng',1,{logger:m=>{
-      if(m.status==='loading tesseract core')updProc('Laddar kärna...',Math.round(m.progress*100)+'%');
-      else if(m.status==='loading language traineddata')updProc('Laddar språkdata...',Math.round(m.progress*100)+'%');
-      else if(m.status==='recognizing text')updProc('Läser text...',Math.round(m.progress*100)+'%');
-    }});
-    return ocrW;
-  }catch(e){showProc(false);toast('OCR kunde inte laddas.','error');throw e;}
-}
+/* ========== OCR ========== */
+function getW(){if(ocrW)return Promise.resolve(ocrW);showProc(true,'Laddar OCR-motor...','Första gången ca 10-30s');return Tesseract.createWorker('swe+eng',1,{logger:function(m){if(m.status==='loading tesseract core')updProc('Laddar kärna...',Math.round(m.progress*100)+'%');else if(m.status==='loading language traineddata')updProc('Laddar språk...',Math.round(m.progress*100)+'%');else if(m.status==='recognizing text')updProc('Läser text...',Math.round(m.progress*100)+'%');}}).then(function(w){ocrW=w;return w;}).catch(function(e){showProc(false);toast('OCR kunde inte laddas.','error');throw e;});}
+function doOCR(img){return getW().then(function(w){updProc('Läser text...','0%');return w.recognize(img);}).then(function(r){return r.data.text;});}
 
-async function doOCR(img){
-  const w=await getW();updProc('Läser text...','0%');
-  const r=await w.recognize(img);return r.data.text;
-}
-
-/* =============================================
-   PARSNING
-   Vikt (kg) avgör typ. Företag identifieras separat.
-   Riktning (hämtat/lämnat) från nyckelord eller viktkomparation.
-   ============================================= */
+/* ========== PARSNING ========== */
 function parseReceipt(text){
-  const lo=text.toLowerCase();
+  var lo=text.toLowerCase();
+  var wgs=[];var rm;while((rm=/(\d+)\.?\s*vägning[^0-9]*([\d\s]+)\s*kg/gi.exec(text))!==null)wgs.push({n:parseInt(rm[1]),w:parseInt(rm[2].replace(/\s/g,''))});
+  var w1=wgs.length>=1?wgs[0].w:null,w2=wgs.length>=2?wgs[1].w:null;
 
-  /* --- Extrahera vägningar för riktning --- */
-  const wgs=[...text.matchAll(/(\d+)\.?\s*vägning[^0-9]*([\d\s]+)\s*kg/gi)];
-  let w1=null,w2=null;
-  if(wgs.length>=1)w1=parseInt(wgs[0][2].replace(/\s/g,''));
-  if(wgs.length>=2)w2=parseInt(wgs[1][2].replace(/\s/g,''));
-
-  /* --- Har vi vikt? --- */
-  let hasW=false;
+  var hasW=false;
   if(/(?:bruttovikt|nettovikt|taravikt)/i.test(text))hasW=true;
   if(/(?:vägnings?\s*(?:nummer|nr)|vägning\s*\d)/i.test(text))hasW=true;
-  if(!hasW){const kg=[...text.matchAll(/(\d[\d\s]*)\s*kg/gi)].map(m=>parseInt(m[1].replace(/\s/g,''))).filter(v=>v>=100);if(kg.length)hasW=true;}
+  if(!hasW){var kgm;var kgs=[];while((kgm=/(\d[\d\s]*)\s*kg/gi.exec(text))!==null){var v=parseInt(kgm[1].replace(/\s/g,''));if(v>=100)kgs.push(v);}if(kgs.length)hasW=true;}
   if(!hasW&&/(\d[.,\d]*)\s*tonn/i.test(text))hasW=true;
 
-  /* --- Företag --- */
-  let company='',ck='annat';
+  var company='',ck='annat';
   if(/hans\s*andersson|haeab/i.test(text)){company='Hans Andersson Entreprenad AB';ck='hans-andersson';}
   else if(/sortera\s*(?:materials|recycling)/i.test(text)){company='Sortera Materials AB';ck='sortera';}
-  else if(/st\s*1\b|st1\b/i.test(text)){const m=text.match(/st\s*1[^\n]*/i);company=m?m[0].trim().substring(0,40):'St1';ck='st1';}
+  else if(/st\s*1\b|st1\b/i.test(text)){var cm=text.match(/st\s*1[^\n]*/i);company=cm?cm[0].trim().substring(0,40):'St1';ck='st1';}
   else if(/preem/i.test(text)){company='Preem';ck='preem';}
   else if(/ok\s*q8|okq8/i.test(text)){company='OKQ8';ck='okq8';}
   else if(/circle\s*k/i.test(text)){company='Circle K';ck='circlek';}
-  else{const ls=text.split('\n').filter(l=>l.trim().length>4);if(ls.length)company=ls[0].trim().substring(0,55);ck='annat';}
+  else{var ls=text.split('\n').filter(function(l){return l.trim().length>4;});if(ls.length)company=ls[0].trim().substring(0,55);ck='annat';}
 
-  /* --- Riktning --- */
-  let dir='okand';
+  var dir='okand';
   if(/hämt(at|ning)|upphämt/i.test(lo))dir='hamtat';
   else if(/lämn(at|ing)|leverer(at|ans)|avlast/i.test(lo))dir='lamnat';
-  if(dir==='okand'&&w1!==null&&w2!==null&&!isNaN(w1)&&!isNaN(w2)){
-    if(w1>w2)dir='lamnat';   // Kom in tung = lämnade material
-    else if(w2>w1)dir='hamtat'; // Gick ut tung = hämtade material
-  }
-  if(dir==='okand'){
-    if(ck==='sortera')dir='lamnat';       // Sortera = vanligtvis lämna dit
-    else if(ck==='hans-andersson')dir='hamtat'; // Hans Andersson = vanligtvis hämta därifrån
-  }
+  if(dir==='okand'&&w1!==null&&w2!==null&&!isNaN(w1)&&!isNaN(w2)){if(w1>w2)dir='lamnat';else if(w2>w1)dir='hamtat';}
+  if(dir==='okand'){if(ck==='sortera')dir='lamnat';else if(ck==='hans-andersson')dir='hamtat';}
 
-  /* --- Typ (vikten avgör!) --- */
-  let type='okand';
-  if(hasW)type='vagkvitto';
-  else if(/adblue|ad\s*blue/i.test(lo))type='adblue';
-  else if(/diesel|bensin/i.test(lo))type='bransle';
+  var type='okand';if(hasW)type='vagkvitto';else if(/adblue|ad\s*blue/i.test(lo))type='adblue';else if(/diesel|bensin/i.test(lo))type='bransle';
 
-  /* --- Detaljer --- */
-  let amount='',total='',date='',time='',material='',customer='',comment='';
-  let weight={},fuel={},extra={};
-
+  var amount='',total='',date='',time='',material='',customer='',comment='';var weight={},fuel={},extra={};
   if(type==='vagkvitto'){
-    let m;
+    var m;
     m=text.match(/(?:vägnings?\s*(?:nummer|nr))[:\s]*([A-Z0-9]+)/i);if(m)weight.vagNummer=m[1].trim();
     m=text.match(/(?:bruttovikt|brutto\s*vikt)[:\s]*([\d\s]+)\s*kg/i);if(m)weight.bruttovikt=m[1].trim()+' kg';
     m=text.match(/(?:nettovikt|netto\s*vikt)[:\s]*([\d\s]+)\s*kg/i);if(m){weight.nettovikt=m[1].trim()+' kg';amount=m[1].trim()+' kg';}
     m=text.match(/(?:taravikt|tara\s*vikt|tara)[:\s]*([\d\s]+)\s*kg/i);if(m)weight.taravikt=m[1].trim()+' kg';
-    if(!amount){const ak=[...text.matchAll(/(\d[\d\s]*)\s*kg/gi)].map(x=>parseInt(x[1].replace(/\s/g,''))).filter(x=>x>=100);if(ak.length)amount=Math.max(...ak)+' kg';}
-    m=text.match(/(\d[\d\s\-]*\s*(?:bergkross|grus|sand|makadam|jord|materi[aå]l|sten|asfalt|fyllning|schaktmassa|jordmassa|makadamm)[^\n]*)/i);if(m)material=m[1].trim();
-    /* Kund/mottagare — vem hämtade eller lämnade */
+    if(!amount){var ak=[];var akm;while((akm=/(\d[\d\s]*)\s*kg/gi.exec(text))!==null){var av=parseInt(akm[1].replace(/\s/g,''));if(av>=100)ak.push(av);}if(ak.length)amount=Math.max.apply(null,ak)+' kg';}
+    m=text.match(/(\d[\d\s\-]*\s*(?:bergkross|grus|sand|makadam|jord|materi[aå]l|sten|asfalt|fyllning|schaktmassa|jordmassa)[^\n]*)/i);if(m)material=m[1].trim();
     m=text.match(/(?:kund|kunden|mottagare|leverans\s*till|leverantör|för\s*kund|kundnr)[:\s]*([^\n]+)/i);if(m)customer=m[1].trim();
     m=text.match(/(?:projekt|adress|plats|objekt)[:\s]*([^\n]+)/i);if(m)extra.projekt=m[1].trim();
   }
-  if(type==='bransle'){
-    if(lo.includes('diesel'))fuel.typ='Diesel';else if(lo.includes('bensin'))fuel.typ='Bensin';
-    const lm=text.match(/([\d.,]+)\s*L/i);if(lm)amount=lm[1].replace(',','.')+' L';
-    const pm=text.match(/([\d.,]+)\s*SEK\s*\/\s*L/i);if(pm)fuel.prisPerL=pm[1].replace(',','.')+' SEK/L';
-    const tm=text.match(/([\d\s.,]+)\s*SEK/i);if(tm)total=tm[1].replace(/\s/g,'').replace(',','.')+' SEK';
-  }
-  if(type==='adblue'){
-    const lm=text.match(/([\d.,]+)\s*L/i);if(lm)amount=lm[1].replace(',','.')+' L';
-    const tm=text.match(/([\d\s.,]+)\s*SEK/i);if(tm)total=tm[1].replace(/\s/g,'').replace(',','.')+' SEK';
-  }
+  if(type==='bransle'){if(lo.includes('diesel'))fuel.typ='Diesel';else if(lo.includes('bensin'))fuel.typ='Bensin';var lm=text.match(/([\d.,]+)\s*L/i);if(lm)amount=lm[1].replace(',','.')+' L';var pm=text.match(/([\d.,]+)\s*SEK\s*\/\s*L/i);if(pm)fuel.prisPerL=pm[1].replace(',','.')+' SEK/L';var tm=text.match(/([\d\s.,]+)\s*SEK/i);if(tm)total=tm[1].replace(/\s/g,'').replace(',','.')+' SEK';}
+  if(type==='adblue'){var lm2=text.match(/([\d.,]+)\s*L/i);if(lm2)amount=lm2[1].replace(',','.')+' L';var tm2=text.match(/([\d\s.,]+)\s*SEK/i);if(tm2)total=tm2[1].replace(/\s/g,'').replace(',','.')+' SEK';}
 
-  /* Datum */
-  let m;
-  m=text.match(/(\d{4})-(\d{2})-(\d{2})/);if(m)date=m[1]+'-'+m[2]+'-'+m[3];
-  else{m=text.match(/(\d{2})-(\d{2})-(\d{2})/);if(m){const y=parseInt(m[1])>50?'19'+m[1]:'20'+m[1];date=y+'-'+m[2]+'-'+m[3];}}
+  var dm;text.match(/(\d{4})-(\d{2})-(\d{2})/)?(dm=text.match(/(\d{4})-(\d{2})-(\d{2})/),date=dm[1]+'-'+dm[2]+'-'+dm[3]):(dm=text.match(/(\d{2})-(\d{2})-(\d{2})/))&&(date=(parseInt(dm[1])>50?'19'+dm[1]:'20'+dm[1])+'-'+dm[2]+'-'+dm[3]);
+  var tm3=text.match(/(\d{1,2}):(\d{2})(?::(\d{2}))?/);if(tm3)time=tm3[1].padStart(2,'0')+':'+tm3[2]+(tm3[3]?':'+tm3[3]:'');
+  if(!total&&type!=='vagkvitto'){var all=[];var am;while((am=/([\d\s]+\.\d{2})/g.exec(text))!==null)all.push(am);if(all.length)total=all[all.length-1][1].replace(/\s/g,'')+' SEK';}
 
-  /* Tid */
-  m=text.match(/(\d{1,2}):(\d{2})(?::(\d{2}))?/);if(m)time=m[1].padStart(2,'0')+':'+m[2]+(m[3]?':'+m[3]:'');
-
-  /* Totalt fallback */
-  if(!total&&type!=='vagkvitto'){const a=[...text.matchAll(/([\d\s]+\.\d{2})/g)];if(a.length)total=a[a.length-1][1].replace(/\s/g,'')+' SEK';}
-
-  return{type,company,ck,dir,date,time,amount,total,material,customer,comment,weight,fuel,extra};
+  return{type:type,company:company,ck:ck,dir:dir,date:date,time:time,amount:amount,total:total,material:material,customer:customer,comment:comment,weight:weight,fuel:fuel,extra:extra};
 }
 
-/* =============================================
-   FILHANTERING
-   ============================================= */
-async function handleFiles(files){
-  if(busy)return;if(!files||!files.length)return;
-  busy=true;
-  const fa=Array.from(files).filter(f=>f.type.startsWith('image/'));
+/* ========== FILHANTERING ========== */
+function handleFiles(files){
+  if(busy)return;if(!files||!files.length)return;busy=true;
+  var fa=Array.from(files).filter(function(f){return f.type.startsWith('image/');});
   if(!fa.length){toast('Välj en bildfil.','error');busy=false;return;}
-
-  for(let i=0;i<fa.length;i++){
-    showProc(true,'Bild '+(i+1)+'/'+fa.length,'Komprimerar...');
-    try{
-      const url=await compImg(fa[i]);
+  var i=0;
+  function next(){
+    if(i>=fa.length){showProc(false);busy=false;render();updateStats();document.getElementById('fileInput').value='';document.getElementById('cameraInput').value='';return;}
+    showProc(true,'Bild '+(i+1)+'/'+fa.length,'Komprimerar i hög kvalitet...');
+    compImg(fa[i]).then(function(url){
       updProc('Bild '+(i+1)+'/'+fa.length,'Kör OCR...');
-      const txt=await doOCR(url);
-      updProc('Bild '+(i+1)+'/'+fa.length,'Tolkar...');
-      const p=parseReceipt(txt);
-
-      receipts.unshift({
-        id:gid(),type:p.type,company:p.company,ck:p.ck,dir:p.dir,
-        date:p.date||new Date().toISOString().split('T')[0],time:p.time||'',
-        amount:p.amount,total:p.total,material:p.material,customer:p.customer,
-        comment:p.comment,weight:p.weight,fuel:p.fuel,extra:p.extra||{},
-        ocrText:txt,imageUrl:url,createdAt:Date.now()
+      return doOCR(url).then(function(txt){
+        updProc('Bild '+(i+1)+'/'+fa.length,'Tolkar...');
+        var p=parseReceipt(txt);
+        receipts.unshift({id:gid(),type:p.type,company:p.company,ck:p.ck,dir:p.dir,date:p.date||new Date().toISOString().split('T')[0],time:p.time||'',amount:p.amount,total:p.total,material:p.material,customer:p.customer,comment:p.comment,weight:p.weight,fuel:p.fuel,extra:p.extra||{},ocrText:txt,imageUrl:url,createdAt:Date.now()});
+        save();var cc=CC[p.ck]||CC.annat;toast(TC[p.type].l+' — '+cc.l+' — '+fmtD(p.date),'success');
+        i++;next();
       });
-      save();
-      const cc=CC[p.ck]||CC.annat;
-      toast(TC[p.type].l+' — '+cc.l+' — '+fmtD(p.date),'success');
-    }catch(e){console.error(e);toast('Bild '+(i+1)+' misslyckades','error');}
+    }).catch(function(e){console.error(e);toast('Bild '+(i+1)+' misslyckades','error');i++;next();});
   }
-  showProc(false);busy=false;render();updateStats();
-  document.getElementById('fileInput').value='';
-  document.getElementById('cameraInput').value='';
+  next();
 }
 
-/* =============================================
-   MANUELL INMATNING
-   ============================================= */
-function openManMod(){
-  document.getElementById('manMod').classList.remove('hidden');
-  document.querySelector('#manForm [name="date"]').value=new Date().toISOString().split('T')[0];
-}
+/* ========== MANUELL ========== */
+function openManMod(){document.getElementById('manMod').classList.remove('hidden');document.querySelector('#manForm [name="date"]').value=new Date().toISOString().split('T')[0];}
 function closeMan(){document.getElementById('manMod').classList.add('hidden');document.getElementById('manForm').reset();}
-
-function guessCK(name){if(!name)return'annat';const l=name.toLowerCase();if(l.includes('hans andersson'))return'hans-andersson';if(l.includes('sortera'))return'sortera';if(l.includes('st1')||l.includes('st 1'))return'st1';if(l.includes('preem'))return'preem';if(l.includes('okq8')||l.includes('ok q8'))return'okq8';if(l.includes('circle k'))return'circlek';return'annat';}
-
-async function submitMan(ev){
-  ev.preventDefault();const fd=new FormData(ev.target);let url=null;
-  const img=fd.get('image');if(img&&img.size>0)url=await compImg(img);
-  receipts.unshift({
-    id:gid(),type:fd.get('type'),company:fd.get('company')||'',ck:guessCK(fd.get('company')),
-    dir:fd.get('direction'),date:fd.get('date'),time:fd.get('time')||'',
-    amount:fd.get('amount')||'',total:fd.get('total')||'',material:fd.get('material')||'',
-    customer:fd.get('customer')||'',comment:fd.get('comment')||'',
-    weight:{},fuel:{},extra:{},ocrText:'(Manuell inmatning)',imageUrl:url,createdAt:Date.now()
-  });
-  save();closeMan();render();updateStats();toast('Kvitto sparat','success');
+function submitMan(ev){
+  ev.preventDefault();var fd=new FormData(ev.target);var img=fd.get('image');var p=img&&img.size>0?compImg(img,1800,0.78):Promise.resolve(null);
+  p.then(function(url){receipts.unshift({id:gid(),type:fd.get('type'),company:fd.get('company')||'',ck:guessCK(fd.get('company')),dir:fd.get('direction'),date:fd.get('date'),time:fd.get('time')||'',amount:fd.get('amount')||'',total:fd.get('total')||'',material:fd.get('material')||'',customer:fd.get('customer')||'',comment:fd.get('comment')||'',weight:{},fuel:{},extra:{},ocrText:'(Manuell inmatning)',imageUrl:url,createdAt:Date.now()});save();closeMan();render();updateStats();toast('Kvitto sparat','success');});
 }
 
-/* =============================================
-   REDIGERA
-   ============================================= */
+/* ========== REDIGERA ========== */
 function openEdt(id){
-  const r=receipts.find(x=>x.id===id);if(!r)return;
-  const f=document.getElementById('edtForm');
-  f.querySelector('[name="id"]').value=id;
-  f.querySelector('[name="type"]').value=r.type;
-  f.querySelector('[name="direction"]').value=r.dir||'okand';
-  f.querySelector('[name="date"]').value=r.date;
-  f.querySelector('[name="time"]').value=r.time||'';
-  f.querySelector('[name="company"]').value=r.company||'';
-  f.querySelector('[name="customer"]').value=r.customer||'';
-  f.querySelector('[name="amount"]').value=r.amount||'';
-  f.querySelector('[name="total"]').value=r.total||'';
-  f.querySelector('[name="material"]').value=r.material||'';
-  f.querySelector('[name="comment"]').value=r.comment||'';
+  var r=receipts.find(function(x){return x.id===id;});if(!r)return;var f=document.getElementById('edtForm');
+  f.querySelector('[name="id"]').value=id;f.querySelector('[name="type"]').value=r.type;f.querySelector('[name="direction"]').value=r.dir||'okand';
+  f.querySelector('[name="date"]').value=r.date;f.querySelector('[name="time"]').value=r.time||'';f.querySelector('[name="company"]').value=r.company||'';
+  f.querySelector('[name="customer"]').value=r.customer||'';f.querySelector('[name="amount"]').value=r.amount||'';f.querySelector('[name="total"]').value=r.total||'';
+  f.querySelector('[name="material"]').value=r.material||'';f.querySelector('[name="comment"]').value=r.comment||'';
   closeDet();document.getElementById('edtMod').classList.remove('hidden');
 }
 function closeEdt(){document.getElementById('edtMod').classList.add('hidden');}
-
 function submitEdt(ev){
-  ev.preventDefault();const fd=new FormData(ev.target);const id=fd.get('id');
-  const i=receipts.findIndex(x=>x.id===id);if(i===-1)return;
-  const r=receipts[i];
-  r.type=fd.get('type');r.dir=fd.get('direction');r.date=fd.get('date');
-  r.time=fd.get('time')||'';r.company=fd.get('company')||'';r.ck=guessCK(r.company);
-  r.customer=fd.get('customer')||'';r.amount=fd.get('amount')||'';
+  ev.preventDefault();var fd=new FormData(ev.target);var id=fd.get('id');var idx=receipts.findIndex(function(x){return x.id===id;});if(idx===-1)return;
+  var r=receipts[idx];r.type=fd.get('type');r.dir=fd.get('direction');r.date=fd.get('date');r.time=fd.get('time')||'';
+  r.company=fd.get('company')||'';r.ck=guessCK(r.company);r.customer=fd.get('customer')||'';r.amount=fd.get('amount')||'';
   r.total=fd.get('total')||'';r.material=fd.get('material')||'';r.comment=fd.get('comment')||'';
   save();closeEdt();render();updateStats();toast('Uppdaterat','success');
 }
 
-/* =============================================
-   BEKRÄFTELSE
-   ============================================= */
-let cfmCb=null;
+/* ========== BEKRÄFTELSE ========== */
+var cfmCb=null;
 function showCfm(t,m,cb){document.getElementById('cfmT').textContent=t;document.getElementById('cfmM').textContent=m;cfmCb=cb;document.getElementById('cfmBtn').onclick=function(){if(cfmCb)cfmCb();closeCfm();};document.getElementById('cfmMod').classList.remove('hidden');}
 function closeCfm(){document.getElementById('cfmMod').classList.add('hidden');cfmCb=null;}
-function confirmDelAll(){if(!receipts.length){toast('Inga kvitton','info');return;}showCfm('Radera alla','Radera alla '+receipts.length+' kvitton? Kan inte ångras.',function(){receipts=[];save();render();updateStats();toast('Alla raderade','info');});}
-function delR(id){showCfm('Radera kvitto','Radera detta kvitto?',function(){receipts=receipts.filter(x=>x.id!==id);save();closeDet();render();updateStats();toast('Raderat','info');});}
+function confirmDelAll(){if(!receipts.length){toast('Inga kvitton','info');return;}showCfm('Radera alla','Radera alla '+receipts.length+' kvitton?',function(){receipts=[];save();render();updateStats();toast('Alla raderade','info');});}
+function delR(id){showCfm('Radera kvitto','Radera detta kvitto?',function(){receipts=receipts.filter(function(x){return x.id!==id;});save();closeDet();render();updateStats();toast('Raderat','info');});}
 
-/* =============================================
-   DETAIL MODAL
-   ============================================= */
+/* ========== DETAIL MODAL ========== */
 function openDet(id){
-  const r=receipts.find(x=>x.id===id);if(!r)return;
-  const tc=TC[r.type],cc=CC[r.ck]||CC.annat,dc=DC[r.dir]||DC.okand;
+  var r=receipts.find(function(x){return x.id===id;});if(!r)return;
+  var tc=TC[r.type],cc=CC[r.ck]||CC.annat,dc=DC[r.dir]||DC.okand;
+  var rows='';
+  if(r.type==='vagkvitto'){var dl=r.dir==='hamtat'?'Hämtat material hos '+r.company:r.dir==='lamnat'?'Lämnat material till '+r.company:'Okänd riktning';rows+='<div class="ir"><span class="text-[10px] text-muted">Riktning</span><span class="dtag" style="background:'+dc.c+'18;color:'+dc.c+'"><i class="fa-solid '+dc.i+'" style="font-size:7px"></i> '+dl+'</span></div>';}
+  if(r.customer)rows+='<div class="ir"><span class="text-[10px] text-muted">'+(r.type==='vagkvitto'?'Kund / Mottagare':'Kund')+'</span><span class="text-xs font-medium">'+r.customer+'</span></div>';
+  rows+='<div class="ir"><span class="text-[10px] text-muted">Vägplats</span><span class="text-xs font-medium">'+(r.company||'—')+'</span></div>';
+  rows+='<div class="ir"><span class="text-[10px] text-muted">'+(r.type==='vagkvitto'?'Nettovikt':'Mängd')+'</span><span class="text-xs font-bold">'+(r.amount||'—')+'</span></div>';
+  if(r.total)rows+='<div class="ir"><span class="text-[10px] text-muted">Totalt</span><span class="text-xs font-bold">'+r.total+'</span></div>';
+  if(r.material)rows+='<div class="ir"><span class="text-[10px] text-muted">Material</span><span class="text-xs font-medium">'+r.material+'</span></div>';
 
-  let rows='';
-  /* Riktningsrad */
-  if(r.type==='vagkvitto'){
-    const dirLabel=r.dir==='hamtat'?'Hämtat material hos '+r.company:r.dir==='lamnat'?'Lämnat material till '+r.company:'Okänd riktning';
-    rows+='<div class="info-row"><span class="text-[10px] text-muted">Riktning</span><span class="dir-tag" style="background:'+dc.c+'18;color:'+dc.c+'"><i class="fa-solid '+dc.i+' mr-0.5" style="font-size:8px"></i>'+dirLabel+'</span></div>';
-  }
-  if(r.customer)rows+='<div class="info-row"><span class="text-[10px] text-muted">'+(r.type==='vagkvitto'?'Kund / Mottagare':'Kund')+'</span><span class="text-xs font-medium">'+r.customer+'</span></div>';
-  rows+='<div class="info-row"><span class="text-[10px] text-muted">Vägplats / Företag</span><span class="text-xs font-medium">'+(r.company||'—')+'</span></div>';
-  rows+='<div class="info-row"><span class="text-[10px] text-muted">'+(r.type==='vagkvitto'?'Nettovikt':'Mängd')+'</span><span class="text-xs font-bold">'+(r.amount||'—')+'</span></div>';
-  if(r.total)rows+='<div class="info-row"><span class="text-[10px] text-muted">Totalt</span><span class="text-xs font-bold">'+r.total+'</span></div>';
-  if(r.material)rows+='<div class="info-row"><span class="text-[10px] text-muted">Material</span><span class="text-xs font-medium">'+r.material+'</span></div>';
-
-  /* Viktdetaljer */
-  let wdet='';
-  if(r.type==='vagkvitto'&&r.weight){
-    const wd=[['Vägningsnummer',r.weight.vagNummer],['Bruttovikt',r.weight.bruttovikt],['Nettovikt',r.weight.nettovikt],['Taravikt',r.weight.taravikt]].filter(function(x){return x[1];});
-    if(wd.length)wdet='<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-1.5">Viktdetaljer</p><div class="grid grid-cols-2 gap-1.5">'+wd.map(function(x){return'<div class="bg-bg/50 rounded-lg p-2"><p class="text-[9px] text-muted">'+x[0]+'</p><p class="text-xs font-bold">'+x[1]+'</p></div>';}).join('')+'</div></div>';
-  }
-  /* Bränsledetaljer */
-  let fdet='';
-  if(r.type==='bransle'&&r.fuel){
-    const fd=[[r.fuel.typ?'Bränsletyp':null,r.fuel.typ],[r.fuel.prisPerL?'Pris/L':null,r.fuel.prisPerL]].filter(function(x){return x[1];});
-    if(fd.length)fdet='<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-1.5">Bränsleinfo</p><div class="grid grid-cols-2 gap-1.5">'+fd.map(function(x){return'<div class="bg-bg/50 rounded-lg p-2"><p class="text-[9px] text-muted">'+x[0]+'</p><p class="text-xs font-bold">'+x[1]+'</p></div>';}).join('')+'</div></div>';
-  }
-  /* Övrigt */
-  let oex='';
-  const oe=Object.entries(r.extra||{}).filter(function(x){return x[1];});
-  if(oe.length)oex='<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-1.5">Övrigt</p><div class="grid grid-cols-2 gap-1.5">'+oe.map(function(x){return'<div class="bg-bg/50 rounded-lg p-2"><p class="text-[9px] text-muted">'+x[0]+'</p><p class="text-xs font-bold">'+x[1]+'</p></div>';}).join('')+'</div></div>';
+  var wdet='',fdet='',oex='';
+  if(r.type==='vagkvitto'&&r.weight){var wd=[['Vägningsnr',r.weight.vagNummer],['Bruttovikt',r.weight.bruttovikt],['Nettovikt',r.weight.nettovikt],['Taravikt',r.weight.taravikt]].filter(function(x){return x[1];});if(wd.length)wdet='<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-1">Viktdetaljer</p><div class="grid grid-cols-2 gap-1.5">'+wd.map(function(x){return'<div class="bg-bg/50 rounded-lg p-2"><p class="text-[9px] text-muted">'+x[0]+'</p><p class="text-xs font-bold">'+x[1]+'</p></div>';}).join('')+'</div></div>';}
+  if(r.type==='bransle'&&r.fuel){var fd2=[[r.fuel.typ?'Typ':null,r.fuel.typ],[r.fuel.prisPerL?'Pris/L':null,r.fuel.prisPerL]].filter(function(x){return x[1];});if(fd2.length)fdet='<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-1">Bränsleinfo</p><div class="grid grid-cols-2 gap-1.5">'+fd2.map(function(x){return'<div class="bg-bg/50 rounded-lg p-2"><p class="text-[9px] text-muted">'+x[0]+'</p><p class="text-xs font-bold">'+x[1]+'</p></div>';}).join('')+'</div></div>';}
+  var oe=Object.entries(r.extra||{}).filter(function(x){return x[1];});if(oe.length)oex='<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-1">Övrigt</p><div class="grid grid-cols-2 gap-1.5">'+oe.map(function(x){return'<div class="bg-bg/50 rounded-lg p-2"><p class="text-[9px] text-muted">'+x[0]+'</p><p class="text-xs font-bold">'+x[1]+'</p></div>';}).join('')+'</div></div>';
 
   document.getElementById('detC').innerHTML=
-    '<div class="relative">'+
-      (r.imageUrl?'<img src="'+r.imageUrl+'" alt="Kvitto" class="w-full max-h-56 object-contain bg-black/30 rounded-t-2xl">':'<div class="h-24 bg-bg rounded-t-2xl flex items-center justify-center"><i class="fa-solid fa-image text-muted text-xl"></i></div>')+
-      '<button onclick="closeDet()" class="absolute top-2 right-2 w-6 h-6 rounded-md bg-black/60 hover:bg-black/80 flex items-center justify-center transition-all"><i class="fa-solid fa-xmark text-white text-[10px]"></i></button>'+
-      '<div class="absolute top-2 left-2 flex gap-1 flex-wrap">'+
-        '<span class="badge text-white" style="background:'+tc.c+'"><i class="fa-solid '+tc.i+' mr-0.5" style="font-size:7px"></i>'+tc.l+'</span>'+
-        ctag(r.ck)+
-        (r.type==='vagkvitto'?dtag(r.dir):'')+
-      '</div>'+
-    '</div>'+
-    '<div class="p-4">'+
-      '<div class="space-y-0">'+rows+'</div>'+
-      wdet+fdet+oex+
-      (r.comment?'<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-0.5">Kommentar</p><p class="text-xs">'+r.comment+'</p></div>':'')+
-      (r.ocrText?'<details class="mt-3"><summary class="text-[9px] text-muted cursor-pointer hover:text-fg transition-colors select-none">Visa rå OCR-text</summary><pre class="mt-1 p-2 bg-bg rounded-lg text-[10px] text-muted overflow-auto max-h-32 whitespace-pre-wrap leading-relaxed">'+r.ocrText+'</pre></details>':'')+
-      '<div class="flex gap-2 mt-4">'+
-        '<button onclick="openEdt(\''+r.id+'\')" class="flex-1 py-1.5 rounded-xl bg-accent text-bg font-semibold text-xs hover:bg-accent-hover transition-all"><i class="fa-solid fa-pen mr-1"></i>Redigera</button>'+
-        '<button onclick="delR(\''+r.id+'\')" class="px-3 py-1.5 rounded-xl bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-medium hover:bg-red-500/20 transition-all"><i class="fa-solid fa-trash-can"></i></button>'+
-      '</div>'+
-    '</div>';
+    '<div class="relative">'+(r.imageUrl?'<img src="'+r.imageUrl+'" alt="Kvitto" class="w-full max-h-56 object-contain bg-black/30 rounded-t-2xl">':'<div class="h-24 bg-bg rounded-t-2xl flex items-center justify-center"><i class="fa-solid fa-image text-muted text-xl"></i></div>')+
+    '<button onclick="closeDet()" class="absolute top-2 right-2 w-6 h-6 rounded-md bg-black/60 hover:bg-black/80 flex items-center justify-center"><i class="fa-solid fa-xmark text-white text-[10px]"></i></button>'+
+    '<div class="absolute top-2 left-2 flex gap-1 flex-wrap"><span class="badge text-white" style="background:'+tc.c+'"><i class="fa-solid '+tc.i+'" style="font-size:7px"></i> '+tc.l+'</span>'+ctagH(r.ck)+(r.type==='vagkvitto'?dtagH(r.dir):'')+'</div></div>'+
+    '<div class="p-4"><div class="space-y-0">'+rows+'</div>'+wdet+fdet+oex+
+    (r.comment?'<div class="mt-3"><p class="text-[9px] text-muted uppercase tracking-wider font-semibold mb-0.5">Kommentar</p><p class="text-xs">'+r.comment+'</p></div>':'')+
+    (r.ocrText?'<details class="mt-3"><summary class="text-[9px] text-muted cursor-pointer hover:text-fg transition-colors select-none">Visa rå OCR-text</summary><pre class="mt-1 p-2 bg-bg rounded-lg text-[10px] text-muted overflow-auto max-h-32 whitespace-pre-wrap">'+r.ocrText+'</pre></details>':'')+
+    '<div class="flex gap-2 mt-4 flex-wrap">'+
+      '<button onclick="createPDF(\''+r.id+'\')" class="act-btn flex-1" style="background:rgba(245,158,11,.12);color:#f59e0b;border-color:rgba(245,158,11,.25)"><i class="fa-solid fa-file-pdf"></i>Digital kopia (PDF)</button>'+
+      (r.imageUrl?'<button onclick="downloadImg(\''+r.id+'\')" class="act-btn" style="background:rgba(59,130,246,.12);color:#3b82f6;border-color:rgba(59,130,246,.25)"><i class="fa-solid fa-image"></i>Nedladda bild</button>':'')+
+      '<button onclick="openEdt(\''+r.id+'\')" class="act-btn" style="background:rgba(226,231,236,.08);color:#e2e7ec;border-color:#243040"><i class="fa-solid fa-pen"></i></button>'+
+      '<button onclick="delR(\''+r.id+'\')" class="act-btn" style="background:rgba(239,68,68,.1);color:#ef4444;border-color:rgba(239,68,68,.2)"><i class="fa-solid fa-trash-can"></i></button>'+
+    '</div></div>';
   document.getElementById('detMod').classList.remove('hidden');
 }
 function closeDet(){document.getElementById('detMod').classList.add('hidden');}
 
-/* =============================================
-   FILTER
-   ============================================= */
+/* ========== DIGITAL KOPA (PDF) ========== */
+function createPDF(id){
+  var r=receipts.find(function(x){return x.id===id;});if(!r)return;
+  var tc=TC[r.type],cc=CC[r.ck]||CC.annat,dc=DC[r.dir]||DC.okand;
+  var now=new Date();
+  var genDate=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+
+  var typeLabel=tc.l.toUpperCase();
+  if(r.type==='vagkvitto')typeLabel+=' — '+(r.dir==='hamtat'?'HÄMTAT':r.dir==='lamnat'?'LÄMNAT':'OKÄND RIKTNING');
+
+  /* Bygger rader med data */
+  var dataRows='';
+  function row(label,val){if(val)dataRows+='<tr><td style="color:#555;padding:3px 8px 3px 0;vertical-align:top;white-space:nowrap">'+label+'</td><td style="font-weight:bold;padding:3px 0">'+val+'</td></tr>';}
+
+  if(r.type==='vagkvitto'){
+    row('Vägplats / Företag',r.company);
+    if(r.weight.vagNummer)row('Vägningsnummer',r.weight.vagNummer);
+    row('Datum',fmtD(r.date)+(r.time?' kl '+r.time:''));
+    row('Riktning',(DC[r.dir]||DC.okand).l);
+    if(r.customer)row('Kund / Mottagare',r.customer);
+    row('Nettovikt',r.amount||'—');
+    if(r.weight.bruttovikt)row('Bruttovikt',r.weight.bruttovikt);
+    if(r.weight.taravikt)row('Taravikt',r.weight.taravikt);
+    if(r.material)row('Material',r.material);
+    if(r.extra.projekt)row('Projekt/Adress',r.extra.projekt);
+  }else if(r.type==='bransle'){
+    row('Station',r.company);
+    row('Datum',fmtD(r.date)+(r.time?' kl '+r.time:''));
+    if(r.fuel.typ)row('Bränsletyp',r.fuel.typ);
+    row('Mängd',r.amount||'—');
+    if(r.fuel.prisPerL)row('Pris per liter',r.fuel.prisPerL);
+    row('Totalt',r.total||'—');
+  }else if(r.type==='adblue'){
+    row('Station',r.company);
+    row('Datum',fmtD(r.date)+(r.time?' kl '+r.time:''));
+    row('Mängd',r.amount||'—');
+    row('Totalt',r.total||'—');
+  }else{
+    row('Företag',r.company);
+    row('Datum',fmtD(r.date)+(r.time?' kl '+r.time:''));
+    row('Mängd',r.amount||'—');
+    row('Totalt',r.total||'—');
+  }
+  if(r.comment)row('Kommentar',r.comment);
+
+  var imgSection=r.imageUrl?'<div style="margin-top:20px;text-align:center"><p style="font-size:10px;color:#888;margin-bottom:6px">ORIGINALKVITTO</p><img src="'+r.imageUrl+'" style="max-width:100%;border:1px solid #ddd;border-radius:4px"></div>':'';
+
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Digital kopia — '+tc.l+'</title><style>'+
+    '@page{size:A4;margin:12mm}'+
+    '*{box-sizing:border-box;margin:0;padding:0}'+
+    'body{font-family:"Courier New",Courier,monospace;font-size:11px;color:#000;background:#fff;padding:20px}'+
+    '.hdr{text-align:center;border-bottom:3px double #000;padding-bottom:12px;margin-bottom:16px}'+
+    '.hdr h1{font-size:16px;font-weight:bold;letter-spacing:2px;margin-bottom:4px}'+
+    '.hdr p{font-size:9px;color:#666}'+
+    '.divider{border-top:1px dashed #000;margin:12px 0}'+
+    '.section-title{font-size:9px;color:#888;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase}'+
+    'table{width:100%;border-collapse:collapse}'+
+    '.footer{margin-top:24px;text-align:center;padding-top:12px;border-top:1px solid #ccc;font-size:8px;color:#999}'+
+    '.no-print{margin-bottom:20px;text-align:center}'+
+    '.no-print button{padding:10px 24px;font-size:13px;font-family:sans-serif;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer}'+
+    '.no-print button:hover{background:#333}'+
+    '@media print{.no-print{display:none !important}}'+
+    '</style></head><body>'+
+    '<div class="no-print"><button onclick="window.print()">Spara som PDF</button></div>'+
+    '<div class="hdr"><h1>'+typeLabel+'</h1><p>Digital kopia genererad: '+genDate+'</p></div>'+
+    '<div class="section-title">KVITTODATA</div>'+
+    '<table>'+dataRows+'</table>'+
+    imgSection+
+    '<div class="footer">Vågkvitto Scanner — digital.kopia — '+genDate+'</div>'+
+    '</body></html>';
+
+  var w=window.open('','_blank');
+  if(!w){toast('Blockerades av popup-blockerare. Tillåt popups för denna sida.','error');return;}
+  w.document.write(html);w.document.close();
+  w.onload=function(){setTimeout(function(){try{w.print();}catch(e){}},400);};
+}
+
+/* ========== NEDLADDA BILD ========== */
+function downloadImg(id){
+  var r=receipts.find(function(x){return x.id===id;});if(!r||!r.imageUrl)return;
+  var a=document.createElement('a');a.href=r.imageUrl;a.download='kvitto_'+r.date+'_'+r.ck+'.jpg';a.click();
+  toast('Bild nedladdad','success');
+}
+
+/* ========== GITHUB GIST ========== */
+function openGHMod(){document.getElementById('ghMod').classList.remove('hidden');document.getElementById('ghUser').value=localStorage.getItem('gh_user')||'';document.getElementById('ghToken').value=localStorage.getItem('gh_token')||'';updateGHStatus();}
+function closeGHMod(){document.getElementById('ghMod').classList.add('hidden');}
+
+function saveGHSet(){localStorage.setItem('gh_user',document.getElementById('ghUser').value.trim());localStorage.setItem('gh_token',document.getElementById('ghToken').value.trim());toast('Inställningar sparade','success');updateGHStatus();}
+
+function getGHAuth(){var u=localStorage.getItem('gh_user'),t=localStorage.getItem('gh_token');if(!u||!t)return null;return{user:u,token:t};}
+function getGistId(){return localStorage.getItem('gh_gist_id');}
+
+function updateGHStatus(){
+  var st=document.getElementById('ghStatus');var auth=getGHAuth();var gid=getGistId();
+  if(!auth){st.classList.remove('hidden');st.innerHTML='<div class="gh-status" style="background:#ef4444"></div><span style="color:#ef4444">Ej konfigurerad</span>';return;}
+  st.classList.remove('hidden');
+  if(gid)st.innerHTML='<div class="gh-status" style="background:#10b981"></div><span style="color:#10b981">Ansluten — Gist: '+gid.substring(0,8)+'...</span>';
+  else st.innerHTML='<div class="gh-status" style="background:#f59e0b"></div><span style="color:#f59e0b">Token sparad — säkerhetskopiera för att skapa Gist</span>';
+}
+
+function testGH(){
+  var auth=getGHAuth();if(!auth){toast('Fyll i användarnamn och token','error');return;}
+  fetch('https://api.github.com/user',{headers:{'Authorization':'token '+auth.token}})
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(u){toast('Ansluten till '+u.login,'success');updateGHStatus();})
+    .catch(function(e){toast('Kunde inte ansluta: '+e.message,'error');updateGHStatus();});
+}
+
+function backupGH(){
+  var auth=getGHAuth();if(!auth){toast('Fyll i användarnamn och token först','error');return;}
+  /* Ta bort bilder och OCR-text för att hålla Gisten liten */
+  var slim=receipts.map(function(r){return{id:r.id,type:r.type,company:r.company,ck:r.ck,dir:r.dir,date:r.date,time:r.time,amount:r.amount,total:r.total,material:r.material,customer:r.customer,comment:r.comment,weight:r.weight,fuel:r.fuel,extra:r.extra,createdAt:r.createdAt};});
+  var body={description:'Vågkvitto Scanner — säkerhetskopia',public:false,files:{'kvitton_data.json':{content:JSON.stringify(slim,null,2)}}};
+  var gid=getGistId();
+  var url=gid?'https://api.github.com/gists/'+gid:'https://api.github.com/gists';
+  var method=gid?'PATCH':'POST';
+
+  toast('Säkerhetskopierar till GitHub...','info');
+  fetch(url,{method:method,headers:{'Authorization':'token '+auth.token,'Content-Type':'application/json'},body:JSON.stringify(body)})
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(g){
+      if(!gid){localStorage.setItem('gh_gist_id',g.id);toast('Gist skapad: '+g.html_url,'success');}
+      else toast('Gist uppdaterad','success');
+      updateGHStatus();
+    })
+    .catch(function(e){toast('Säkerhetskopia misslyckades: '+e.message,'error');});
+}
+
+function restoreGH(){
+  var auth=getGHAuth();var gid=getGistId();
+  if(!auth||!gid){toast('Konfigurera GitHub och skapa en Gist först','error');return;}
+  if(receipts.length>0){showCfm('Återställ från GitHub','Detta ersätter alla lokala kvitton med de från GitHub. Fortsätta?',doRestore);return;}
+  doRestore();
+  function doRestore(){
+    toast('Hämtar från GitHub...','info');
+    fetch('https://api.github.com/gists/'+gid,{headers:{'Authorization':'token '+auth.token}})
+      .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+      .then(function(g){
+        var file=g.files['kvitton_data.json'];if(!file)throw new Error('Filen finns inte');
+        var data=JSON.parse(file.content);
+        /* Bevara lokala bilder om de matchar */
+        var localMap={};receipts.forEach(function(r){localMap[r.id]=r.imageUrl;});
+        receipts=data.map(function(r){return Object.assign({},r,{imageUrl:localMap[r.id]||null,ocrText:''});});
+        save();render();updateStats();closeCfm();toast(data.length+' kvitton återställda','success');
+      })
+      .catch(function(e){toast('Återställning misslyckades: '+e.message,'error');});
+  }
+}
+
+/* ========== FILTER ========== */
 function setTypeFilter(f,btn){
   typeFilter=f;dirFilter='all';compFilter='all';
-  document.querySelectorAll('.fb[data-f]').forEach(function(b){b.classList.remove('on');});
+  document.querySelectorAll('#typeFilters .fb').forEach(function(b){b.classList.remove('on');});
   btn.classList.add('on');
   renderSubFilters();render();
 }
-function setDirFilter(d,btn){
-  dirFilter=d;
-  document.querySelectorAll('#dirBtns .sf').forEach(function(b){b.classList.toggle('on',b.dataset.d===d);});
-  render();
-}
-function setCompFilter(c,btn){
-  compFilter=c;
-  document.querySelectorAll('#compBtns .sf').forEach(function(b){b.classList.toggle('on',b.dataset.c===c);});
-  render();
-}
+function setDirFilter(d,btn){dirFilter=d;document.querySelectorAll('#dirBtns .sf').forEach(function(b){b.classList.toggle('on',b.dataset.d===d);});render();}
+function setCompFilter(c,btn){compFilter=c;document.querySelectorAll('#compBtns .sf').forEach(function(b){b.classList.toggle('on',b.dataset.c===c);});render();}
 function doSearch(v){searchQ=v.toLowerCase();render();}
 function doSort(v){sortMode=v;render();}
 
 function renderSubFilters(){
-  const dr=document.getElementById('dirRow'),cr=document.getElementById('compRow');
-  const showVag=typeFilter==='vagkvitto'||typeFilter==='all';
-
-  /* Riktningsfilter */
+  var dr=document.getElementById('dirRow'),cr=document.getElementById('compRow');
+  var showVag=typeFilter==='vagkvitto'||typeFilter==='all';
   if(showVag&&receipts.some(function(r){return r.type==='vagkvitto';})){
     dr.classList.remove('hidden');
-    const dirs=[['all','Alla riktningar','#e2e7ec'],['hamtat','Hämtat','#10b981'],['lamnat','Lämnat','#f59e0b'],['okand','Okänd','#6b7280']];
-    document.getElementById('dirBtns').innerHTML=dirs.map(function(x){
-      return'<button class="sf '+(dirFilter===x[0]?'on':'')+'" style="--ac:'+x[2]+'" data-d="'+x[0]+'" onclick="setDirFilter(\''+x[0]+'\',this)">'+x[1]+'</button>';
-    }).join('');
-  }else{dr.classList.add('hidden');}
+    document.getElementById('dirBtns').innerHTML=
+      '<button class="sf '+(dirFilter==='all'?'on':'')+'" style="--ac:#e2e7ec" data-d="all" onclick="setDirFilter(\'all\',this)">Alla</button>'+
+      '<button class="sf '+(dirFilter==='hamtat'?'on':'')+'" style="--ac:#10b981" data-d="hamtat" onclick="setDirFilter(\'hamtat\',this)"><i class="fa-solid fa-arrow-up-from-bracket" style="font-size:8px"></i> Hämtat</button>'+
+      '<button class="sf '+(dirFilter==='lamnat'?'on':'')+'" style="--ac:#f59e0b" data-d="lamnat" onclick="setDirFilter(\'lamnat\',this)"><i class="fa-solid fa-arrow-down-to-bracket" style="font-size:8px"></i> Lämnat</button>'+
+      '<button class="sf '+(dirFilter==='okand'?'on':'')+'" style="--ac:#6b7280" data-d="okand" onclick="setDirFilter(\'okand\',this)">Okänd</button>';
+  }else dr.classList.add('hidden');
 
-  /* Företagsfilter */
   if(typeFilter==='vagkvitto'){
-    const vagR=receipts.filter(function(r){return r.type==='vagkvitto';});
-    const keys=[];vagR.forEach(function(r){if(r.ck!=='annat'&&keys.indexOf(r.ck)===-1)keys.push(r.ck);});
+    var vagR=receipts.filter(function(r){return r.type==='vagkvitto';});var keys=[];vagR.forEach(function(r){if(r.ck!=='annat'&&keys.indexOf(r.ck)===-1)keys.push(r.ck);});
     if(keys.length){
-      cr.classList.remove('hidden');
-      let html='<button class="sf '+(compFilter==='all'?'on':'')+'" style="--ac:#e2e7ec" data-c="all" onclick="setCompFilter(\'all\',this)">Alla företag</button>';
-      keys.forEach(function(k){
-        const c=CC[k]||CC.annat;const cnt=vagR.filter(function(r){return r.ck===k;}).length;
-        html+='<button class="sf '+(compFilter===k?'on':'')+'" style="--ac:'+c.c+'" data-c="'+k+'" onclick="setCompFilter(\''+k+'\',this)">'+c.l+' ('+cnt+')</button>';
-      });
-      document.getElementById('compBtns').innerHTML=html;
-    }else{cr.classList.add('hidden');}
-  }else{cr.classList.add('hidden');}
+      cr.classList.remove('hidden');var h='<button class="sf '+(compFilter==='all'?'on':'')+'" style="--ac:#e2e7ec" data-c="all" onclick="setCompFilter(\'all\',this)">Alla företag</button>';
+      keys.forEach(function(k){var c=CC[k]||CC.annat;var cnt=vagR.filter(function(r){return r.ck===k;}).length;h+='<button class="sf '+(compFilter===k?'on':'')+'" style="--ac:'+c.c+'" data-c="'+k+'" onclick="setCompFilter(\''+k+'\',this)">'+c.l+' ('+cnt+')</button>';});
+      document.getElementById('compBtns').innerHTML=h;
+    }else cr.classList.add('hidden');
+  }else cr.classList.add('hidden');
 }
 
 function getFiltered(){
-  let f=[...receipts];
+  var f=receipts.slice();
   if(typeFilter!=='all')f=f.filter(function(r){return r.type===typeFilter;});
   if(dirFilter!=='all')f=f.filter(function(r){return r.dir===dirFilter;});
   if(compFilter!=='all')f=f.filter(function(r){return r.ck===compFilter;});
-  if(searchQ)f=f.filter(function(r){
-    var s=[r.company,r.amount,r.total,r.comment,r.date,r.ocrText,r.material,r.customer,...Object.values(r.weight||{}),...Object.values(r.extra||{})].join(' ').toLowerCase();
-    return s.indexOf(searchQ)!==-1;
-  });
+  if(searchQ)f=f.filter(function(r){var s=[r.company,r.amount,r.total,r.comment,r.date,r.material,r.customer,...Object.values(r.weight||{}),...Object.values(r.extra||{})].join(' ').toLowerCase();return s.indexOf(searchQ)!==-1;});
   switch(sortMode){
     case'date-desc':f.sort(function(a,b){return b.createdAt-a.createdAt;});break;
     case'date-asc':f.sort(function(a,b){return a.createdAt-b.createdAt;});break;
@@ -692,41 +598,22 @@ function getFiltered(){
   return f;
 }
 
-/* =============================================
-   RENDERING
-   ============================================= */
+/* ========== RENDERING ========== */
 function render(){
-  var list=document.getElementById('rList'),empty=document.getElementById('empty');
-  var filtered=getFiltered();
+  var list=document.getElementById('rList'),empty=document.getElementById('empty');var filtered=getFiltered();
   if(!filtered.length){list.innerHTML='';empty.classList.remove('hidden');return;}
   empty.classList.add('hidden');
-
   list.innerHTML=filtered.map(function(r,i){
     var tc=TC[r.type],cc=CC[r.ck]||CC.annat,dc=DC[r.dir]||DC.okand;
-    var dirH=r.type==='vagkvitto'?'<span class="dir-tag" style="background:'+dc.c+'18;color:'+dc.c+'"><i class="fa-solid '+dc.i+'" style="font-size:7px"></i></span>':'';
-    var custH=r.customer?'<p class="text-[10px] text-muted truncate"><i class="fa-solid fa-user mr-0.5" style="font-size:7px"></i>'+r.customer+'</p>':'';
-    return '<div class="rc rounded-xl overflow-hidden cursor-pointer" style="animation-delay:'+(i*.03)+'s" onclick="openDet(\''+r.id+'\')">'+
-      '<div class="flex">'+
-        (r.imageUrl?'<img src="'+r.imageUrl+'" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-cover flex-shrink-0 bg-bg">':'<div class="w-20 h-20 sm:w-24 sm:h-24 bg-bg flex-shrink-0 flex items-center justify-center"><i class="fa-solid fa-receipt text-muted text-lg"></i></div>')+
-        '<div class="flex-1 p-2.5 flex flex-col justify-between min-w-0 gap-0.5">'+
-          '<div>'+
-            '<div class="flex items-center gap-1 flex-wrap">'+
-              '<span class="badge text-white" style="background:'+tc.c+'"><i class="fa-solid '+tc.i+'" style="font-size:7px"></i></span>'+
-              ctag(r.ck)+dirH+
-            '</div>'+
-            '<p class="text-xs font-semibold truncate mt-1 leading-tight">'+(r.company||tc.l)+'</p>'+
-            custH+
-          '</div>'+
-          '<div>'+
-            '<p class="text-[10px] text-muted">'+fmtD(r.date)+(r.time?' kl '+r.time:'')+'</p>'+
-            '<div class="flex items-center gap-2 mt-0.5">'+
-              (r.amount?'<span class="text-[10px] text-muted"><i class="fa-solid fa-weight-hanging mr-0.5" style="font-size:8px"></i>'+r.amount+'</span>':'')+
-              (r.total?'<span class="text-xs font-bold">'+r.total+'</span>':'')+
-            '</div>'+
-          '</div>'+
-        '</div>'+
-      '</div>'+
-    '</div>';
+    var dirH=r.type==='vagkvitto'?'<span class="dtag" style="background:'+dc.c+'18;color:'+dc.c+'"><i class="fa-solid '+dc.i+'" style="font-size:7px"></i></span>':'';
+    var custH=r.customer?'<p class="text-[10px] text-muted truncate"><i class="fa-solid fa-user" style="font-size:7px"></i> '+r.customer+'</p>':'';
+    return '<div class="rc rounded-xl overflow-hidden cursor-pointer" style="animation-delay:'+(i*.03)+'s" onclick="openDet(\''+r.id+'\')"><div class="flex">'+
+      (r.imageUrl?'<img src="'+r.imageUrl+'" alt="" class="w-20 h-20 sm:w-24 sm:h-24 object-cover flex-shrink-0 bg-bg">':'<div class="w-20 h-20 sm:w-24 sm:h-24 bg-bg flex-shrink-0 flex items-center justify-center"><i class="fa-solid fa-receipt text-muted text-lg"></i></div>')+
+      '<div class="flex-1 p-2.5 flex flex-col justify-between min-w-0 gap-0.5"><div><div class="flex items-center gap-1 flex-wrap">'+
+      '<span class="badge text-white" style="background:'+tc.c+'"><i class="fa-solid '+tc.i+'" style="font-size:7px"></i></span>'+ctagH(r.ck)+dirH+
+      '</div><p class="text-xs font-semibold truncate mt-1 leading-tight">'+(r.company||tc.l)+'</p>'+custH+'</div><div>'+
+      '<p class="text-[10px] text-muted">'+fmtD(r.date)+(r.time?' kl '+r.time:'')+'</p>'+
+      '<div class="flex items-center gap-2 mt-0.5">'+(r.amount?'<span class="text-[10px] text-muted"><i class="fa-solid fa-weight-hanging" style="font-size:8px"></i> '+r.amount+'</span>':'')+(r.total?'<span class="text-xs font-bold">'+r.total+'</span>':'')+'</div></div></div></div></div>';
   }).join('');
 }
 
@@ -734,52 +621,30 @@ function updateStats(){
   document.getElementById('sT').textContent=receipts.length;
   var vagR=receipts.filter(function(r){return r.type==='vagkvitto';});
   document.getElementById('sV').textContent=vagR.length;
-  var ham=vagR.filter(function(r){return r.dir==='hamtat';}).length;
-  var lam=vagR.filter(function(r){return r.dir==='lamnat';}).length;
-  document.getElementById('sVL').textContent=ham+' hämtat / '+lam+' lämnat';
+  document.getElementById('sVL').textContent=vagR.filter(function(r){return r.dir==='hamtat';}).length+' hämtat / '+vagR.filter(function(r){return r.dir==='lamnat';}).length+' lämnat';
   document.getElementById('sB').textContent=receipts.filter(function(r){return r.type==='bransle';}).length;
   document.getElementById('sA').textContent=receipts.filter(function(r){return r.type==='adblue';}).length;
   document.getElementById('sO').textContent=receipts.filter(function(r){return r.type==='okand';}).length;
 }
 
-/* =============================================
-   EXPORT
-   ============================================= */
+/* ========== EXPORT ========== */
 function exportData(){
   if(!receipts.length){toast('Inga kvitton','info');return;}
-  var exp=receipts.map(function(r){
-    var o={typ:TC[r.type].l,foretag:r.company,datum:r.date,tid:r.time};
-    if(r.type==='vagkvitto'){o.riktning=(DC[r.dir]||DC.okand).l;o.kund=r.customer;o.vikt=r.amount;o.material=r.material;if(r.weight)vagdet=r.weight;}
-    else{o.mangd=r.amount;}
-    o.totalt=r.total;o.kommentar=r.comment;
-    return o;
-  });
-  var blob=new Blob([JSON.stringify(exp,null,2)],{type:'application/json'});
-  var a=document.createElement('a');a.href=URL.createObjectURL(blob);
-  a.download='kvitton_'+new Date().toISOString().split('T')[0]+'.json';
-  a.click();URL.revokeObjectURL(a.href);
-  toast(receipts.length+' kvitton exporterade','success');
+  var exp=receipts.map(function(r){var o={typ:TC[r.type].l,foretag:r.company,datum:r.date,tid:r.time};if(r.type==='vagkvitto'){o.riktning=(DC[r.dir]||DC.okand).l;o.kund=r.customer;o.vikt=r.amount;o.material=r.material;if(r.weight)o.viktdetaljer=r.weight;}else{o.mangd=r.amount;}o.totalt=r.total;o.kommentar=r.comment;return o;});
+  var blob=new Blob([JSON.stringify(exp,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='kvitton_'+new Date().toISOString().split('T')[0]+'.json';a.click();URL.revokeObjectURL(a.href);toast(receipts.length+' kvitton exporterade','success');
 }
 
-/* =============================================
-   DRAG & DROP
-   ============================================= */
+/* ========== DRAG & DROP ========== */
 var dz=document.getElementById('dropZone');
 ['dragenter','dragover'].forEach(function(e){dz.addEventListener(e,function(ev){ev.preventDefault();ev.stopPropagation();dz.classList.add('over');});});
 ['dragleave','drop'].forEach(function(e){dz.addEventListener(e,function(ev){ev.preventDefault();ev.stopPropagation();dz.classList.remove('over');});});
 dz.addEventListener('drop',function(e){handleFiles(e.dataTransfer.files);});
 
-/* =============================================
-   KEYBOARD
-   ============================================= */
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDet();closeMan();closeEdt();closeCfm();}});
+/* ========== KEYBOARD ========== */
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDet();closeMan();closeEdt();closeCfm();closeGHMod();}});
 
-/* =============================================
-   INIT
-   ============================================= */
-render();
-updateStats();
-renderSubFilters();
+/* ========== INIT ========== */
+render();updateStats();renderSubFilters();
 </script>
 </body>
 </html>
